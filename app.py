@@ -12,7 +12,7 @@ def main():
 
 @app.route("/main",methods=["GET","POST"])
 def main():
-  return(render_template("/imageGPT",r=r))
+  return(render_template("/imageGPT"))
 
 
 if __name__ == "__main__":
