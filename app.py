@@ -8,7 +8,11 @@ def index():
 @app.route("/main",methods=["GET","POST"])
 def main():
   r = request.form.get("r")
-  return (render_template("main.html",r = name))
+  return (render_template("main.html",r = r))
+
+@app.route("/main",methods=["GET","POST"])
+def main():
+  return(render_template("/imageGPT",r=r))
 
 
 if __name__ == "__main__":
