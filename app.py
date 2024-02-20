@@ -2,7 +2,7 @@ from flask import Flask,request,render_template
 app = Flask(__name__)
 
 r = " "
-first_time=1
+first_time = 1
 
 @app.route("/",methods=["GET","POST"])
 def index():
@@ -10,7 +10,7 @@ def index():
 
 @app.route("/main",methods=["GET","POST"])
 def main():
-  if first_time = 1:
+  if first_time = 1:v 
     r = request.form.get("r")
     first_time=0
   return (render_template("main.html",r = r))
