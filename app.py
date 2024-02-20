@@ -7,7 +7,7 @@ def index():
 
 @app.route("/main",methods=["GET","POST"])
 def main():
-  name = request.form.get("game")
+  r = request.form.get("r")
   return (render_template("main.html",r = name))
 
 
