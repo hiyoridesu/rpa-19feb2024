@@ -1,5 +1,11 @@
 from flask import Flask,request,render_template
+
+import replicate
+import os
+import time
+
 app = Flask(__name__)
+os.environ["REPLICATE_API_TOKEN"]="r8_PjPBUKDL0x7UTopCGSertBXdPr1PGNn221Xeb"
 
 r = ""
 first_time = 1
@@ -9,12 +15,24 @@ def index():
   return (render_template("index.html"))
 
 @app.route("/main",methods=["GET","POST"])
-def main():
-  global r, first_time
-  if first_time == 1: 
-    r = request.form.get("r")
-    first_time=0
+def mian():
+  global r,first_time
+  if first_time == 1:
+    r=request.form.get()
   return (render_template("main.html",r = r))
+
+@app.route("/image_result",methods=["GET","POST"])
+def image_result():
+  q = request.form.get("q")
+  r = replicate.run(
+   "stability-ai/stable-diffusion:db21e45d3f7023abc2a46ee38a23973f6dce16bb082a930b0c49861f96d1e5bf",
+
+    input={"prompt": inputs,}
+  )
+  time.sleep(10)
+  return(render_template("image_gpt.html",r = r[0]))
+  print(r)
+
 
 @app.route("/image_gpt",methods=["GET","POST"])
 def image_gpt():
@@ -23,7 +41,7 @@ def image_gpt():
 @app.route("/end",methods=["GET","POST"])
 def end():
   first_time = 1
-  return(render_template("/index.html"))
+  return(render_template("/image_gpt.html"))
 
 if __name__ == "__main__":
   app.run()
