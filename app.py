@@ -21,6 +21,11 @@ def mian():
     r=request.form.get()
   return (render_template("main.html",r = r))
 
+@app.route("/image_gpt",methods=["GET","POST"])
+def image_gpt():
+  return(render_template("/image_gpt.html"))
+
+
 @app.route("/image_result",methods=["GET","POST"])
 def image_result():
   q = request.form.get("q")
@@ -31,17 +36,16 @@ def image_result():
   )
   time.sleep(10)
   return(render_template("image_gpt.html",r = r[0]))
-  print(r)
+  
 
 
-@app.route("/image_gpt",methods=["GET","POST"])
-def image_gpt():
-  return(render_template("/image_gpt.html"))
+
 
 @app.route("/end",methods=["GET","POST"])
 def end():
-  first_time = 1
-  return(render_template("/image_gpt.html"))
+    global first_time
+    first_time = 1
+    return(render_template("end.html"))
 
 if __name__ == "__main__":
   app.run()
