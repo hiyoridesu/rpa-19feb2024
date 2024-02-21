@@ -23,7 +23,7 @@ def image_gpt():
 @app.route("/end",methods=["GET","POST"])
 def end():
   first_time = 1
-  return(render_template("/image_gpt.html"))
+  return(render_template("/index.html"))
 
 if __name__ == "__main__":
   app.run()
