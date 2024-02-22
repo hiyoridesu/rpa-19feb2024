@@ -9,6 +9,7 @@ from openai import OpenAI
 app = Flask(__name__)
 os.environ["REPLICATE_API_TOKEN"]="r8_PjPBUKDL0x7UTopCGSertBXdPr1PGNn221Xeb"
 model = OpenAI(api_key="sess-ElBdj2n2ZoPDc0a56i8PXrNroyaZpV1Gvnw8zBSs")
+openai_api_key = os.environ["OPENAI_API_TOKEN"]="sess-ElBdj2n2ZoPDc0a56i8PXrNroyaZpV1Gvnw8zBSs"
 
 
 r = ""
