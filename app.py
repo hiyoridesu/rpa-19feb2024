@@ -69,6 +69,7 @@ def text_result():
             "content": q
         }
     ]
+  )
   time.sleep(5)
   return(render_template("text_gpt.html",r = r, choices[0].message.content))
   
