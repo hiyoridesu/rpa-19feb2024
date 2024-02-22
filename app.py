@@ -9,7 +9,7 @@ from openai import OpenAI
 app = Flask(__name__)
 os.environ["REPLICATE_API_TOKEN"]="r8_PjPBUKDL0x7UTopCGSertBXdPr1PGNn221Xeb"
 model = OpenAI(api_key=openai_api_key)
-openai_api_key = os.getenv["OPENAI_API_TOKEN"]
+openai_api_key = os.getenv["OPENAI_API_KEY"]
 
 
 r = ""
