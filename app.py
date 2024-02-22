@@ -71,7 +71,7 @@ def text_result():
     ]
   )
   time.sleep(5)
-  return(render_template("text_gpt.html",r = r, choices[0].message.content))
+  return(render_template("text_gpt.html",r = r.choices[0].message.content))
   
 
 #end
